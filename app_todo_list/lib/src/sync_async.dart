@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:app_todo_list/src/models/todo_model.dart';
 import 'package:http/http.dart' as http;
 
 Future main() async {
@@ -13,12 +14,12 @@ Future main() async {
   print('3');
 }
 
-Future<Todo> fetch() async {
+Future<TodoModel> fetch() async {
   var url = Uri.http('jsonplaceholder.typicode.com', '/todos/1');
   var response = await http.get(url);
   //print(response.body);
   var json = jsonDecode(response.body);
-  var todo = Todo.fromJson(json);
+  var todo = TodoModel.fromJson(json);
   return todo;
 }
 

@@ -27,35 +27,35 @@ Future<void> print4() async {
   print('4');
 }
 
-class Todo {
-  final String title;
-  final int id;
-  final int userId;
-  final bool completed;
+// class Todo {
+//   final String title;
+//   final int id;
+//   final int userId;
+//   final bool completed;
 
-  Todo(
-      {required this.title,
-      required this.id,
-      required this.userId,
-      required this.completed});
+//   Todo(
+//       {required this.title,
+//       required this.id,
+//       required this.userId,
+//       required this.completed});
 
-  factory Todo.fromJson(Map json) {
-    return Todo(
-        id: json['id'],
-        completed: json['completed'],
-        userId: json['userId'],
-        title: json['title']);
-  }
+//   factory Todo.fromJson(Map json) {
+//     return Todo(
+//         id: json['id'],
+//         completed: json['completed'],
+//         userId: json['userId'],
+//         title: json['title']);
+//   }
 
-  Map toJson() {
-    return {
-      'id': id,
-      'title': title,
-      'completed': completed,
-      'userId': userId,
-    };
-  }
-}
+//   Map toJson() {
+//     return {
+//       'id': id,
+//       'title': title,
+//       'completed': completed,
+//       'userId': userId,
+//     };
+//   }
+// }
 
 int stringToInt(String text) {
   int value;

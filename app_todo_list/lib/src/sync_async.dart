@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future main() async {
+  print(stringToInt('d'));
+
   final todo = await fetch();
   print(todo.toJson());
   print4();
@@ -53,4 +55,15 @@ class Todo {
       'userId': userId,
     };
   }
+}
+
+int stringToInt(String text) {
+  int value;
+  try {
+    value = int.parse(text);
+  } catch (e) {
+    throw Exception('Input text ($text) is not a number');
+  }
+
+  return value;
 }

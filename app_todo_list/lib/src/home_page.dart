@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app_todo_list/src/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -16,12 +18,13 @@ class _HomePageState extends State<HomePage> {
       itemCount: controller.todos.length,
       itemBuilder: (context, index) {
         var todo = controller.todos[index];
+        String title = todo.title ?? "";
         return ListTile(
           leading: Checkbox(
             value: todo.completed,
             onChanged: (value) {},
           ),
-          title: Text('item: $todo.title'),
+          title: Text(title),
         );
       },
     );
@@ -74,6 +77,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('List Todo\'s'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              controller.start();
+            },
+            icon: Icon(Icons.refresh_outlined),
+          )
+        ],
       ),
       body: AnimatedBuilder(
         animation: controller.state,
